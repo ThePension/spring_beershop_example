@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-BeershopFullApplication<beershop-full>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "ch.hearc.beershopfull.BeershopFullApplication",
+            "projectName": "beershop-full",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
