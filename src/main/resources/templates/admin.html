@@ -39,7 +39,8 @@
 						<a th:href="@{/admin/edit/{id}(id=${beer.id})}" class="btn btn-primary">Modifier</a>
 					</td>
 					<td>
-						<form method="POST" th:action="@{/admin/delete/{id}(id=${beer.id})}">
+						<form method="POST" th:action="@{/admin/delete/}" th:object="${beer}">
+							<input type="text" name="id" class="form-control" th:value="${beer.id}" hidden />
 							<button class="btn btn-danger" type="submit" name="submit" value="value">Supprimer</button>
 						</form>
 					</td>

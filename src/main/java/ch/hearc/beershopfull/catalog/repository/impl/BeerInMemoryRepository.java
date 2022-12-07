@@ -29,7 +29,8 @@ public class BeerInMemoryRepository implements BeerRepository
 	public void saveBeer(Beer beer)
 	{
 		// Get the biggest id in the table
-		Optional<BigInteger> biggest_id = BEER_TABLE.stream()
+		Optional<BigInteger> biggest_id = BEER_TABLE
+				.stream()
 				.map(Beer::getId)
 				.max(BigInteger::compareTo);
 
@@ -80,7 +81,8 @@ public class BeerInMemoryRepository implements BeerRepository
 	public void updateBeer(Beer beer)
 	{
 		// Get beer index in BEER_TABLE
-		OptionalInt index = IntStream.range(0, BEER_TABLE.size())
+		OptionalInt index = IntStream
+			.range(0, BEER_TABLE.size())
 			.filter(i -> BEER_TABLE.get(i).getId().equals(beer.getId()))
 			.findFirst();
 

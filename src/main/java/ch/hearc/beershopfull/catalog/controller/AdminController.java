@@ -89,10 +89,10 @@ public class AdminController {
      * @param model
      * @return
      */
-    @PostMapping(value = "/delete/{id}")
-    public String removeBeerInDB(@PathVariable int id, Model model)
+    @PostMapping(value = "/delete")
+    public String removeBeerInDB(@ModelAttribute("id") Integer id, Model model)
 	{
-        catalogeService.removeBeerInCatalog(catalogeService.getBeerById(new BigInteger("" + id)));
+        catalogeService.removeBeerInCatalog(catalogeService.getBeerById(new BigInteger(id.toString())));
         return "redirect:/admin";
     }
 
