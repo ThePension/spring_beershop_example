@@ -2,17 +2,21 @@ package ch.hearc.beershopfull.catalog.model;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.List;
 
 /**
  * Model of a beer
  * @author Seb
  *
  */
-public class Beer {
+public class Beer
+{
 	private BigInteger id;
 	private String name;
 	private BigDecimal price;
 	private BigInteger stock;
+
+	private List<Evaluation> evaluations;
 
 	public Beer(String name, BigDecimal price, BigInteger stock) {
 		super();
@@ -37,6 +41,14 @@ public class Beer {
 		this.id = id;
 	}
 
+	public void setEvaluations(List<Evaluation> evaluations) {
+		this.evaluations = evaluations;
+	}
+
+	public List<Evaluation> getEvaluations() {
+		return evaluations;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -59,5 +71,24 @@ public class Beer {
 
 	public BigInteger getStock() {
 		return stock;
+	}
+
+	public int getEvaluationsCount()
+	{
+		if (evaluations == null)
+			return 0;
+		return evaluations.size();
+	}
+
+	public double getPopularity()
+	{
+		if (evaluations == null || evaluations.size() == 0)
+			return 0;
+
+		// Get the average of the evaluations
+		return evaluations.stream()//
+			.mapToInt(Evaluation::getNote)//
+			.average()//
+			.getAsDouble();
 	}
 }

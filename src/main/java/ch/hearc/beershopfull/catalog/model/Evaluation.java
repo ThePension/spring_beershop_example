@@ -7,14 +7,15 @@ import java.math.BigInteger;
  * @author Aunbert NIcolas
  *
  */
-public class Evaluation {
+public class Evaluation
+{
 	private BigInteger id;
     private BigInteger beerId;
     private Integer note;
 
-	public Evaluation(BigInteger id, BigInteger beerId, Integer note) {
+	public Evaluation(BigInteger beerId, Integer note)
+	{
 		super();
-		this.id = id;
         this.beerId = beerId;
         this.note = note;
 	}
@@ -45,9 +46,14 @@ public class Evaluation {
 	public Integer getNote() {
 		return this.note;
 	}
-	
-	public void setPrice(Integer note) {
+
+	public void setNote(Integer note) {
 		this.note = note;
+	}
+
+	@Override
+	public String toString() {
+		return "Evaluation [id=" + id + ", beerId=" + beerId + ", note=" + note + "]";
 	}
 
 }
