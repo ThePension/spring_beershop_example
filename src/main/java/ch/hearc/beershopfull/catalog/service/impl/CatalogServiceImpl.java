@@ -98,4 +98,9 @@ public class CatalogServiceImpl implements CatalogService
 	public void removeEvaluationInBeer(Evaluation evaluation) {
 		evaluationRepository.deleteEvaluation(evaluation);		
 	}
+
+	@Override
+	public void removeAllEvaluationsFromBeer(Beer beer) {
+		evaluationRepository.deleteAllEvaluationsFromBeer(beer.getId());		
+	}
 }

@@ -48,4 +48,9 @@ public interface EvaluationRepository
 	 * @param beer
 	 */
 	public List<Evaluation> getAllEvaluationsFromBeer(BigInteger beerId);
+
+	/**
+	 * Supprime toutes les évaluations d'une bière
+	 */
+	public void deleteAllEvaluationsFromBeer(BigInteger beerId);
 }

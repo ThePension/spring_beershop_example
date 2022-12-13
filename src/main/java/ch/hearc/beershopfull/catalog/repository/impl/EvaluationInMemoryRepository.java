@@ -104,4 +104,11 @@ public class EvaluationInMemoryRepository implements EvaluationRepository
             .filter(e -> e.getBeerId().equals(id))//
             .collect(Collectors.toList());
     }
+
+	@Override
+	public void deleteAllEvaluationsFromBeer(BigInteger beerId) {
+		EVALUATION_TABLE = EVALUATION_TABLE.stream()//
+			.filter(e -> !e.getBeerId().equals(beerId))//
+			.collect(Collectors.toList());
+	}
 }

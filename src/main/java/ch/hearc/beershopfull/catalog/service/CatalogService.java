@@ -63,4 +63,9 @@ public interface CatalogService {
 	 * Supprime une évaluation
 	 */
 	public void removeEvaluationInBeer(Evaluation evaluation);
+
+	/**
+	 * Supprime toutes les évaluations d'une bière
+	 */
+	public void removeAllEvaluationsFromBeer(Beer beer);
 }
