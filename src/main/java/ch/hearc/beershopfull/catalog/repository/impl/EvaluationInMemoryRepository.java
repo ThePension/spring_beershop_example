@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.OptionalInt;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import org.springframework.stereotype.Repository;
@@ -93,4 +94,14 @@ public class EvaluationInMemoryRepository implements EvaluationRepository
 			EVALUATION_TABLE.set(index.getAsInt(), evaluation);
 		}
 	}
+
+    /**
+     * Retourne toutes les évaluations d'une bière
+     */
+    public List<Evaluation> getAllEvaluationsFromBeer(BigInteger id)
+    {
+        return EVALUATION_TABLE.stream()//
+            .filter(e -> e.getBeerId().equals(id))//
+            .collect(Collectors.toList());
+    }
 }

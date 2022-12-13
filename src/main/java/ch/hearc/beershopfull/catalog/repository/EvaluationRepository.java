@@ -42,4 +42,10 @@ public interface EvaluationRepository
 	 * @param evaluation
 	 */
 	public void deleteEvaluation(Evaluation evaluation);
+
+	/**
+	 * Retourne toutes les évaluations d'une bière
+	 * @param beer
+	 */
+	public List<Evaluation> getAllEvaluationsFromBeer(BigInteger beerId);
 }

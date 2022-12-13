@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import ch.hearc.beershopfull.catalog.model.Beer;
 import ch.hearc.beershopfull.catalog.model.Evaluation;
 import ch.hearc.beershopfull.catalog.repository.BeerRepository;
+import ch.hearc.beershopfull.catalog.repository.EvaluationRepository;
 import ch.hearc.beershopfull.catalog.service.CatalogService;
 
 
@@ -21,7 +22,10 @@ import ch.hearc.beershopfull.catalog.service.CatalogService;
 public class CatalogServiceImpl implements CatalogService
 {
 	@Autowired
-	BeerRepository beerRepository; //repository d'accès aux données
+	BeerRepository beerRepository; // repository d'accès aux données
+
+	@Autowired
+	EvaluationRepository evaluationRepository; // repository d'accès aux données
 	
 	/**
 	 * Sauvegarde une nouvelle bière
@@ -72,31 +76,26 @@ public class CatalogServiceImpl implements CatalogService
 
 	@Override
 	public void addEvaluationToBeer(Evaluation evaluation) {
-		// TODO Auto-generated method stub
-		
+		evaluationRepository.saveEvaluation(evaluation);		
 	}
 
 	@Override
 	public List<Evaluation> getAllEvaluationsFromBeer(Beer beer) {
-		// TODO Auto-generated method stub
-		return null;
+		return evaluationRepository.getAllEvaluationsFromBeer(beer.getId());
 	}
 
 	@Override
 	public Evaluation getEvaluationById(BigInteger id) {
-		// TODO Auto-generated method stub
-		return null;
+		return evaluationRepository.getEvaluationById(id);
 	}
 
 	@Override
 	public void updateEvaluationInBeer(Evaluation evaluation) {
-		// TODO Auto-generated method stub
-		
+		evaluationRepository.updateEvaluation(evaluation);		
 	}
 
 	@Override
 	public void removeEvaluationInBeer(Evaluation evaluation) {
-		// TODO Auto-generated method stub
-		
+		evaluationRepository.deleteEvaluation(evaluation);		
 	}
 }
