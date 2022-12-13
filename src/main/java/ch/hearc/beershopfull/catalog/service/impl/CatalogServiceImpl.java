@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ch.hearc.beershopfull.catalog.model.Beer;
+import ch.hearc.beershopfull.catalog.model.Evaluation;
 import ch.hearc.beershopfull.catalog.repository.BeerRepository;
 import ch.hearc.beershopfull.catalog.service.CatalogService;
 
@@ -17,8 +18,8 @@ import ch.hearc.beershopfull.catalog.service.CatalogService;
  *
  */
 @Service
-public class CatalogServiceImpl implements CatalogService{
-	
+public class CatalogServiceImpl implements CatalogService
+{
 	@Autowired
 	BeerRepository beerRepository; //repository d'accès aux données
 	
@@ -67,5 +68,35 @@ public class CatalogServiceImpl implements CatalogService{
 	public void removeBeerInCatalog(Beer beer)
 	{
 		beerRepository.deleteBeer(beer);
+	}
+
+	@Override
+	public void addEvaluationToBeer(Evaluation evaluation) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Evaluation> getAllEvaluationsFromBeer(Beer beer) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Evaluation getEvaluationById(BigInteger id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void updateEvaluationInBeer(Evaluation evaluation) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeEvaluationInBeer(Evaluation evaluation) {
+		// TODO Auto-generated method stub
+		
 	}
 }

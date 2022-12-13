@@ -9,8 +9,8 @@ import ch.hearc.beershopfull.catalog.model.Beer;
  * @author seb
  *
  */
-public interface BeerRepository {
-
+public interface BeerRepository 
+{
 	/**
 	 * Sauvegarde d'une bière
 	 * @param beer
